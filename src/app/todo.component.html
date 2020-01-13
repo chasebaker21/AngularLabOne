@@ -1,0 +1,20 @@
+  <div class="box">
+        <ol>
+        <table>
+          <h3>TODO List</h3>
+          <h4>A place to store all your todos</h4>
+          <tbody>
+            <input value="Filter your to-dos" />
+            <tr *ngFor="let list of tasks">
+              <td>                
+                 <li><button (click)="lineThrough()" id="btn" >Complete</button><div id="numberOne" class="content">{{ list.task }}</div></li>               
+              </td>
+              <td><p>X</p></td>
+              <!-- <td>{{ list.completed }}</td> -->
+            </tr>
+            <input value="Add your to-do" />
+            <button class="addButton">Add</button>
+          </tbody>
+        </table>
+      </ol> 
+  </div>
