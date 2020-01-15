@@ -1,0 +1,29 @@
+.xBtn {
+    border: none;
+    color: #696969;
+    text-decoration: none;
+}
+button {
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: white;
+    color: red;
+    margin-right: 10px;
+    font-size: medium;
+}
+li {
+    margin: 3px;
+}
+.content {
+    display: contents;
+}
+.lineThrough {
+    text-decoration: line-through;
+}
+.innerList {
+    display: flex;
+    justify-content: space-between;
+}
+* {
+    background-color: white;
+}

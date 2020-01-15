@@ -1,0 +1,9 @@
+<li id="item">
+  <ul class="innerList">
+    <div><button *ngIf="!completed">Complete</button>
+    <div id="numberOne" class="content" [ngClass]="{ lineThrough: completed }">{{ task }}</div></div>
+    <button class="xBtn">X</button>  
+  </ul>
+</li>
+<!-- {{ list.completed }} -->
+<!-- list.completed displays what the condition is (true/false) -->

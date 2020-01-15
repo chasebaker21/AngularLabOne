@@ -1,0 +1,18 @@
+<div class="box">
+  <body class="center">
+    <div class="left">
+      <h3>TODO List</h3>
+      <h4>A place to store all your todos</h4>     
+    </div>
+    <input [(ngModel)]="filter" placeholder="Filter your to-dos" autofocus="" />
+    <ol>
+      <todo-item
+        [task]="list.task"
+        *ngFor="let list of getTodos(); let i = index"
+        [completed]="list.completed"
+      ></todo-item>
+    </ol>
+    <input class="new-todo" [(ngModel)]="newTodo.task" (keyup.enter)="addTodo()" placeholder="Add your to-do" />
+    <button class="addButton" (click)="addTodo()">Add</button>
+  </body>
+</div>
