@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ITodo } from './interfaces';
 import { Todo } from './interfaces' ;
-import { Identifiers } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -13,26 +12,27 @@ export class AppComponent {
   newTodo: Todo = new Todo();
   filter: string = "";
   id: number;
+  @Input() i : boolean;
 
   tasks: ITodo[] =[
     {
-      task: 'Take out Trash',
+      task: 'take out trash',
       completed: false
     },
     {
-      task: 'Clean Bathroom',
+      task: 'clean bathroom',
       completed: true
     },
     {
-      task: 'Sweep Floors',
+      task: 'sweep floors',
       completed: false
     },
     {
-      task: 'Fix Sink',
+      task: 'fix sink',
       completed: false
     },
     {
-      task: 'Wash Car',
+      task: 'wash car',
       completed: false
     },
   ]
@@ -40,7 +40,7 @@ export class AppComponent {
   addTodo() {
     this.tasks.push( this.newTodo );
     this.newTodo = new Todo();
-  }
+    }
 
   removeTodo(i) {
     this.tasks.splice(i, 1);

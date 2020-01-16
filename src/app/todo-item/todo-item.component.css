@@ -24,6 +24,9 @@ li {
     display: flex;
     justify-content: space-between;
 }
-* {
-    background-color: white;
+.none {
+    display: none;
+}
+.remove {
+    display: none;
 }

@@ -12,7 +12,7 @@
         [completed]="list.completed"
       ></todo-item>
     </ol>
-    <input class="new-todo" [(ngModel)]="newTodo.task" (keyup.enter)="addTodo()" placeholder="Add your to-do" />
+    <input [(ngModel)]="newTodo.task" (keyup.enter)="addTodo()" placeholder="Add your to-do" />
     <button class="addButton" (click)="addTodo()">Add</button>
   </body>
 </div>

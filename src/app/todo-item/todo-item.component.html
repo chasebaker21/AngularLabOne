@@ -1,9 +1,7 @@
-<li id="item">
+<li>
   <ul class="innerList">
-    <div><button *ngIf="!completed">Complete</button>
-    <div id="numberOne" class="content" [ngClass]="{ lineThrough: completed }">{{ task }}</div></div>
+    <div><button (click)="toggleTodoComplete()" *ngIf="!completed" [ngClass]="{ none : completed }">Complete</button>
+    <div class="content" [ngClass]="{lineThrough: completed}">{{ task }}</div></div>
     <button class="xBtn">X</button>  
   </ul>
 </li>
-<!-- {{ list.completed }} -->
-<!-- list.completed displays what the condition is (true/false) -->

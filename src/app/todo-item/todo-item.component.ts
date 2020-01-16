@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from '../interfaces';
-import { Todo } from '../interfaces' ;
 
 
 @Component({
@@ -12,7 +11,7 @@ export class TodoItemComponent implements ITodo {
 
   @Input() task : string;
   @Input() completed : boolean;
-
+  @Input() id : number;
 
   constructor() {
    }
@@ -20,4 +19,10 @@ export class TodoItemComponent implements ITodo {
   ngOnInit() {
   }
 
+  toggleTodoComplete() {
+    this.completed = true;
+  }
+
 }
+
+
