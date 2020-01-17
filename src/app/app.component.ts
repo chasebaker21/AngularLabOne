@@ -1,58 +1,63 @@
-import { Component, Input } from '@angular/core';
-import { ITodo } from './interfaces';
-import { Todo } from './interfaces' ;
+import { Component, Input } from "@angular/core";
+import { ITodo } from "./interfaces";
+import { Todo } from "./interfaces";
+import { LoggerService } from "src/logger.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+  providers: [LoggerService]
 })
 export class AppComponent {
-  title = 'angular-lab-ToDo';
+  title = "angular-lab-ToDo";
   newTodo: Todo = new Todo();
   filter: string = "";
   id: number;
-  @Input() i : boolean;
 
-  tasks: ITodo[] =[
+  tasks: ITodo[] = [
     {
-      task: 'take out trash',
+      task: "take out trash",
       completed: false
     },
     {
-      task: 'clean bathroom',
+      task: "clean bathroom",
       completed: true
     },
     {
-      task: 'sweep floors',
+      task: "sweep floors",
       completed: false
     },
     {
-      task: 'fix sink',
+      task: "fix sink",
       completed: false
     },
     {
-      task: 'wash car',
+      task: "wash car",
       completed: false
-    },
-  ]
-
-  addTodo() {
-    this.tasks.push( this.newTodo );
-    this.newTodo = new Todo();
     }
+  ];
 
-  removeTodo(i) {
-    this.tasks.splice(i, 1);
+  constructor(private logger: LoggerService) {
+     this.logger.log('in the App component')
+  }
+
+  addTask() {
+    this.tasks.push(this.newTodo);
+    this.newTodo = new Todo();
+  }
+
+  deleteItem(index) {
+    this.tasks.splice(index, 1);
   }
 
   getTodos() {
-    return this.tasks.filter( todo => {
-      if ( this.filter ) {
-        return todo.task.includes(this.filter)
-        } else {
-          return true;
+    return this.tasks.filter(todo => {
+      if (this.filter) {
+        return todo.task.includes(this.filter);
+      } else {
+        return true;
       }
-    })
+    });
   }
- }
+}

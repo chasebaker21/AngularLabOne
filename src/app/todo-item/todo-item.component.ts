@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from '../interfaces';
-
+import { LoggerService } from 'src/logger.service';
 
 @Component({
   selector: 'todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.css']
+  styleUrls: ['./todo-item.component.css'],
+  providers: [LoggerService]
 })
 export class TodoItemComponent implements ITodo {
 
@@ -13,14 +14,19 @@ export class TodoItemComponent implements ITodo {
   @Input() completed : boolean;
   @Input() id : number;
 
-  constructor() {
+  @Output() deleted = new EventEmitter();
+
+  constructor(private logger: LoggerService) {
    }
 
-  ngOnInit() {
+  completeTask() {
+    this.completed = true;
   }
 
-  toggleTodoComplete() {
-    this.completed = true;
+  removeTodo() {
+    // sends to deleteItem() in app.component.ts
+    this.deleted.emit();
+    this.logger.log(`deleted` + this.task)
   }
 
 }

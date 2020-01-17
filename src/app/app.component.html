@@ -7,12 +7,13 @@
     <input [(ngModel)]="filter" placeholder="Filter your to-dos" autofocus="" />
     <ol>
       <todo-item
+        (deleted)="deleteItem(index)"
         [task]="list.task"
         *ngFor="let list of getTodos(); let i = index"
         [completed]="list.completed"
       ></todo-item>
     </ol>
-    <input [(ngModel)]="newTodo.task" (keyup.enter)="addTodo()" placeholder="Add your to-do" />
-    <button class="addButton" (click)="addTodo()">Add</button>
+    <input [(ngModel)]="newTodo.task" (keyup.enter)="addTask()" placeholder="Add your to-do" />
+    <button class="addButton" (click)="addTask()">Add</button>
   </body>
 </div>
