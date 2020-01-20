@@ -30,3 +30,9 @@ li {
 .remove {
     display: none;
 }
+.taskEdit {
+    height: auto;
+    width: auto;
+    border: none;
+    color: #696969;
+}

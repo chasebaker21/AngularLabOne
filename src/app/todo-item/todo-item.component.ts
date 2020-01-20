@@ -6,7 +6,6 @@ import { LoggerService } from 'src/logger.service';
   selector: 'todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css'],
-  providers: [LoggerService]
 })
 export class TodoItemComponent implements ITodo {
 
@@ -28,7 +27,16 @@ export class TodoItemComponent implements ITodo {
     this.deleted.emit();
     this.logger.log(`deleted` + this.task)
   }
-
+  
+  editTask() {
+    let input = document.createElement("input");
+    let added = document.getElementById("newTask").appendChild(input);
+    added.innerHTML = this.task;
+  
+}
+insertTask() {
+      let newOne = document.getElementById("newTask").innerHTML;
+      this.task = newOne;
 }
 
-
+}
