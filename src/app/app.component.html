@@ -7,7 +7,7 @@
     <input [(ngModel)]="filter" placeholder="Filter your to-dos" autofocus="" />
     <ol>
       <todo-item
-        (deleted)="deleteItem(index)"
+        (deleted)="deleteItem(i)"
         [task]="list.task"
         *ngFor="let list of getTodos(); let i = index"
         [completed]="list.completed"

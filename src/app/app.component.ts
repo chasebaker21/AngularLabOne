@@ -15,6 +15,7 @@ export class AppComponent {
   filter: string = "";
   id: number;
 
+  
   tasks: ITodo[] = [
     {
       task: "take out trash",
@@ -47,8 +48,8 @@ export class AppComponent {
     this.newTodo = new Todo();
   }
 
-  deleteItem(index) {
-    this.tasks.splice(index, 1);
+  deleteItem(i) {
+    this.tasks.splice(i, 1);
   }
 
   getTodos() {
