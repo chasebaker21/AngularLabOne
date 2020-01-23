@@ -1,7 +1,7 @@
 <li>
   <ul class="innerList">
     <div><button (click)="completeTask()" *ngIf="!completed" [ngClass]="{ none : completed }">Complete</button>
-    <div class="content"><button [ngClass]="{lineThrough: completed}" class="taskEdit" (click)="editTask()">{{ task }}</button><div id="newTask" (keyup)="insertTask()"></div></div></div>
+    <div class="content" [ngClass]="{lineThrough: completed}">{{ task }}</div></div>
     <button class="xBtn" (click)="removeTodo()">X</button>  
   </ul>
 </li>
